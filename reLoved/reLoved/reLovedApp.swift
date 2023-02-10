@@ -6,12 +6,22 @@
 //
 
 import SwiftUI
-
+import Firebase
 @main
 struct reLovedApp: App {
+    init() {FirebaseApp.configure()}
+
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginView()
         }
+    }
+}
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+       
+        return true
     }
 }
