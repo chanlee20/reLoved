@@ -71,12 +71,17 @@ struct SignupView : View{
                             )
                             .foregroundColor(.white)
                     })
+                    
+
                     .padding(.top)
                     .offset(y: 20)
                 }
+                
             }
+            
             .frame(width: 350)
             Spacer()
+            
         }
         .ignoresSafeArea()
     }
