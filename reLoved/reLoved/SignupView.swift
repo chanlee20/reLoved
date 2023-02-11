@@ -13,6 +13,9 @@ struct SignupView : View{
     @State var pwd = ""
     @State var verified_pwd = ""
     @State var userSignedUp = false;
+    
+   
+
     var body: some View{
             if userSignedUp {
                 //alert signup was completed
@@ -88,20 +91,29 @@ struct SignupView : View{
     
     //sign up
     func register() {
+        
+        if(!email.contains("@wustl.edu")){
+            print("invalid email domain")
+            //alert box later
+            
+            return
+        }
         if(verified_pwd != pwd){
             print("wrong passwords")
             //should eventually alert that the user failed to register
-            userSignedUp = false;
+            return
         }
-        else{
-            userSignedUp = true
-            Auth.auth().createUser(withEmail: email, password: pwd){
-                result, error in
-                if error != nil{
-                    print(error!.localizedDescription)
-                }
+        
+        
+        
+        userSignedUp = true
+        Auth.auth().createUser(withEmail: email, password: pwd){
+            result, error in
+            if error != nil{
+                print(error!.localizedDescription)
             }
         }
+        
     }
 }
 

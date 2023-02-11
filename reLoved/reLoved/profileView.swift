@@ -9,7 +9,26 @@ import SwiftUI
 
 struct profileView: View {
     var body: some View {
-        Text("Profile View")
+        
+        content
+    }
+    
+    var content: some View {
+        
+        VStack{
+            Text("Your Profile")
+            HStack(spacing:100){
+                Image("profile_01")
+                    .resizable().frame(width: 64.0, height: 64.0)
+                Text("Todd Sproull")
+            }
+            
+        
+           
+           
+        }
+        
+        
     }
 }
 
