@@ -21,6 +21,10 @@
 		843E0A7F2996DF1E003433DF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 843E0A792996DED7003433DF /* GoogleService-Info.plist */; };
 		843E0A812996EA52003433DF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843E0A802996EA52003433DF /* MainView.swift */; };
 		843E0A832996EA5F003433DF /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843E0A822996EA5F003433DF /* SignupView.swift */; };
+		E2B97BAE299711E000E3539E /* chatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B97BAD299711E000E3539E /* chatView.swift */; };
+		E2B97BB22997120400E3539E /* profileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B97BB12997120400E3539E /* profileView.swift */; };
+		E2B97BB42997123D00E3539E /* likedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B97BB32997123D00E3539E /* likedView.swift */; };
+		E2B97BB62997139A00E3539E /* homeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B97BB52997139A00E3539E /* homeView.swift */; };
 		E4211D832C2BB85A87C0A67F /* Pods_reLoved.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9ACC095F87CF8C567F7A3D /* Pods_reLoved.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +67,10 @@
 		93A5FFED2A52FC2532D5125A /* Pods-reLoved.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reLoved.release.xcconfig"; path = "Target Support Files/Pods-reLoved/Pods-reLoved.release.xcconfig"; sourceTree = "<group>"; };
 		AC5D77AA73A5C736F0D7FD25 /* Pods-reLoved-reLovedUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reLoved-reLovedUITests.release.xcconfig"; path = "Target Support Files/Pods-reLoved-reLovedUITests/Pods-reLoved-reLovedUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D205E30373D78B8421AE6F91 /* Pods_reLovedTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reLovedTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2B97BAD299711E000E3539E /* chatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatView.swift; sourceTree = "<group>"; };
+		E2B97BB12997120400E3539E /* profileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileView.swift; sourceTree = "<group>"; };
+		E2B97BB32997123D00E3539E /* likedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = likedView.swift; sourceTree = "<group>"; };
+		E2B97BB52997139A00E3539E /* homeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeView.swift; sourceTree = "<group>"; };
 		ED07557A3ED4170DC1AD74D8 /* Pods-reLovedTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reLovedTests.debug.xcconfig"; path = "Target Support Files/Pods-reLovedTests/Pods-reLovedTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,6 +144,10 @@
 				843E0A822996EA5F003433DF /* SignupView.swift */,
 				842B6C20299048E5001E100F /* Assets.xcassets */,
 				842B6C22299048E5001E100F /* Preview Content */,
+				E2B97BAD299711E000E3539E /* chatView.swift */,
+				E2B97BB12997120400E3539E /* profileView.swift */,
+				E2B97BB32997123D00E3539E /* likedView.swift */,
+				E2B97BB52997139A00E3539E /* homeView.swift */,
 			);
 			path = reLoved;
 			sourceTree = "<group>";
@@ -419,10 +431,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2B97BB22997120400E3539E /* profileView.swift in Sources */,
 				843E0A832996EA5F003433DF /* SignupView.swift in Sources */,
 				842B6C1F299048E4001E100F /* LoginView.swift in Sources */,
+				E2B97BAE299711E000E3539E /* chatView.swift in Sources */,
 				843E0A812996EA52003433DF /* MainView.swift in Sources */,
+				E2B97BB62997139A00E3539E /* homeView.swift in Sources */,
 				842B6C1D299048E4001E100F /* reLovedApp.swift in Sources */,
+				E2B97BB42997123D00E3539E /* likedView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

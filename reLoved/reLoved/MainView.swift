@@ -20,6 +20,7 @@ struct MainView: View {
     }
     
     var content: some View {
+        
         VStack{
             Text("Main page")
             Button(action: {logout()}, label: {
@@ -31,7 +32,28 @@ struct MainView: View {
                     )
                     .foregroundColor(.white)
             })
+            TabView {
+                homeView().tabItem{
+                    Image(systemName: "Home")
+                    Text("Home")
+                }
+                chatView().tabItem{
+                    Image(systemName: "Chat")
+                    Text("Chat")
+                }
+                likedView().tabItem{
+                    Image(systemName: "Liked")
+                    Text("Liked")
+                }
+                profileView().tabItem{
+                    Image(systemName: "Profile")
+                    Text("Profile")
+                }
+            }
+            
         }
+        
+        
     }
     
     //logout
