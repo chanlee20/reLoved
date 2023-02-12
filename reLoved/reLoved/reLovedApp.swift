@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import FirebaseFirestore
 @main
 struct reLovedApp: App {
     init() {FirebaseApp.configure()}

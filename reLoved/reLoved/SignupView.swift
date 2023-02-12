@@ -7,13 +7,17 @@
 
 import SwiftUI
 import Firebase
+import FirebaseFirestore
 struct SignupView : View{
     //state variables
     @State var email = ""
+    @State var name = ""
     @State var pwd = ""
     @State var verified_pwd = ""
     @State var userSignedUp = false;
-    
+   
+
+    let db = Firestore.firestore()
    
 
     var body: some View{
@@ -42,6 +46,9 @@ struct SignupView : View{
                         .frame(width: 180, height: 180)
                         .padding(.bottom)
                     TextField("Email", text: $email)
+                        .foregroundColor(.white)
+                        .textFieldStyle(.plain)
+                    TextField("Name", text: $name)
                         .foregroundColor(.white)
                         .textFieldStyle(.plain)
                     Rectangle()
@@ -106,13 +113,30 @@ struct SignupView : View{
         
         
         
+        
         userSignedUp = true
         Auth.auth().createUser(withEmail: email, password: pwd){
             result, error in
             if error != nil{
                 print(error!.localizedDescription)
             }
+            guard let userUID = result?.user.uid else {return}
+            db.collection("users").document(userUID).setData([
+                "name": name,
+                
+            ]) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                }
+            }
+            
+            
         }
+        
+       
+       
         
     }
 }
