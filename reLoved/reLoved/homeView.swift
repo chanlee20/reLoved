@@ -9,7 +9,16 @@ import SwiftUI
 
 struct homeView: View {
     var body: some View {
-        Text("Home, where we post things")
+       content
+    }
+    var content: some View {
+        
+        HStack{
+            NavigationLink(destination: postView(), label: {Text("post")})
+            
+        }
+        
+        
     }
 }
 
