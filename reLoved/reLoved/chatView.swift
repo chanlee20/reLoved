@@ -10,6 +10,7 @@ import SwiftUI
 struct chatView: View {
     var body: some View {
         Text("ChatView")
+        
     }
 }
 
