@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseFirestore
 
 struct EditProfileModalView: View {
     
@@ -86,8 +88,24 @@ struct EditProfileModalView: View {
    
         
         func updateProfileInfo() {
+            let db = Firestore.firestore()
+            
+            db.collection("users").document(userUID).updateData([
+                "name": newUsername,
+            ]) {
+                err in
+                if let err = err {
+                    print("Error updating document: \(err)")
+                } else {
+                    username = newUsername
+                    print("Document successfully updated!")
+                }
+                
+            }
             isShowing = false
         }
+    
+    
 }
 
 struct EditProfileModalView_Previews: PreviewProvider {
