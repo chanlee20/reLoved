@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2A7EB3DE299980EB00A25BD0 /* postView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7EB3DD299980EB00A25BD0 /* postView.swift */; };
+		2A7EB3E129998C5200A25BD0 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7EB3E029998C5200A25BD0 /* ImagePicker.swift */; };
 		3319B4E157F15BC4F4693C9F /* Pods_reLoved_reLovedUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E42A1E08E4254356535594B /* Pods_reLoved_reLovedUITests.framework */; };
 		7D8A6779B937582506B8238E /* Pods_reLovedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D205E30373D78B8421AE6F91 /* Pods_reLovedTests.framework */; };
 		842B6C1D299048E4001E100F /* reLovedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842B6C1C299048E4001E100F /* reLovedApp.swift */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		046B1AED1394739BF636559C /* Pods-reLoved.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reLoved.debug.xcconfig"; path = "Target Support Files/Pods-reLoved/Pods-reLoved.debug.xcconfig"; sourceTree = "<group>"; };
 		2A7EB3DD299980EB00A25BD0 /* postView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postView.swift; sourceTree = "<group>"; };
+		2A7EB3E029998C5200A25BD0 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		2E42A1E08E4254356535594B /* Pods_reLoved_reLovedUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reLoved_reLovedUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B1AFF18B000BE9167F91FB2 /* Pods-reLoved-reLovedUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reLoved-reLovedUITests.debug.xcconfig"; path = "Target Support Files/Pods-reLoved-reLovedUITests/Pods-reLoved-reLovedUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5D9ACC095F87CF8C567F7A3D /* Pods_reLoved.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reLoved.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +106,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A7EB3E2299AE27E00A25BD0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2A7EB3E029998C5200A25BD0 /* ImagePicker.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		75B0BD16E90D9B313E276EB1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +149,7 @@
 		842B6C1B299048E4001E100F /* reLoved */ = {
 			isa = PBXGroup;
 			children = (
+				2A7EB3E2299AE27E00A25BD0 /* ViewModel */,
 				843E0A792996DED7003433DF /* GoogleService-Info.plist */,
 				842B6C1C299048E4001E100F /* reLovedApp.swift */,
 				842B6C1E299048E4001E100F /* LoginView.swift */,
@@ -477,6 +488,7 @@
 				843E0A812996EA52003433DF /* MainView.swift in Sources */,
 				E2B97BB62997139A00E3539E /* homeView.swift in Sources */,
 				2A7EB3DE299980EB00A25BD0 /* postView.swift in Sources */,
+				2A7EB3E129998C5200A25BD0 /* ImagePicker.swift in Sources */,
 				842B6C1D299048E4001E100F /* reLovedApp.swift in Sources */,
 				E2B97BB42997123D00E3539E /* likedView.swift in Sources */,
 			);

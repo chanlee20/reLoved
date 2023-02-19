@@ -9,6 +9,7 @@ import SwiftUI
 import Firebase
 struct MainView: View {
     @State var loggedout = false
+
     var body: some View{
         //if logout go to login page
         if loggedout {
