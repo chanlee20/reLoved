@@ -18,7 +18,8 @@ struct postView: View {
     
     @State var itemName = ""
     @State var itemDescription = ""
-  
+    @State var price = ""
+    @State var location = ""
     
     @StateObject var imagePicker = ImagePicker()
     let db = Firestore.firestore()
@@ -48,18 +49,41 @@ struct postView: View {
                     }
                     
                     
-                }.frame( height: 300)
+                }.frame( width: 300,height: 300)
+                .border(.red)
                
                 
             
             TextField("Name", text: $itemName)
                 .foregroundColor(.black)
                 .textFieldStyle(.roundedBorder)
-             
-              
-            TextField("Description", text: $itemDescription, axis: .vertical)
+            ScrollView {
+                HStack{
+                    ForEach(PostModel.categories, id: \.self){
+                        category in
+                        Text(category)
+                    }
+                    
+                    
+                   
+
+                }
+
+                  
+                
+            }
+            
+            TextField("Description...", text: $itemDescription, axis: .vertical)
                 .lineLimit(5, reservesSpace: true)
                 .textFieldStyle(.roundedBorder)
+            TextField("Price", text: $price)
+                .foregroundColor(.black)
+                .textFieldStyle(.roundedBorder)
+            
+            TextField("Location", text: $location)
+                .foregroundColor(.black)
+                .textFieldStyle(.roundedBorder)
+            
             Button(action: {
                 post()
                 //print(imagePicker.imageData)
@@ -68,10 +92,10 @@ struct postView: View {
                 Text("Post!")
                     .bold()
                     .frame(width: 200, height: 50)
-                    .background(
-                        RoundedRectangle(cornerRadius: 10, style: .continuous).fill(LinearGradient(colors: [.orange,.orange], startPoint: .top, endPoint: .bottomTrailing))
-                    )
-                    .foregroundColor(.white)
+                    .tint(.red)
+                        .controlSize(.large)
+                        .buttonStyle(.borderedProminent)
+                    
             })
                         
 
@@ -89,14 +113,17 @@ struct postView: View {
         guard let userUID = Auth.auth().currentUser?.uid else {return}
         let postUID = UUID().uuidString
         let storageRef = storage.reference()
-        print(imagePicker.imageData)
+      
         guard let imageData = imagePicker.imageData?.jpegData(compressionQuality: 1.0) else { return }
         let fileRef = storageRef.child("images/\(postUID).jpg")
         let uploadTask = fileRef.putData(imageData,metadata: nil){
             metadata, error in
-            if error == nil && metadata != nil {
+            if let error = error {
+                print("Error uploading image: \(error)")
 
             }
+            
+            
         }
         db.collection("posts").document(postUID).setData([
             "uid": userUID,
