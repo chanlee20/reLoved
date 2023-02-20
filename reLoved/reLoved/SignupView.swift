@@ -119,6 +119,7 @@ struct SignupView : View{
         
         
         userSignedUp = true
+        
         Auth.auth().createUser(withEmail: email, password: pwd){
             result, error in
             if error != nil{
@@ -127,12 +128,13 @@ struct SignupView : View{
             guard let userUID = result?.user.uid else {return}
             db.collection("users").document(userUID).setData([
                 "name": name,
-                
             ]) { err in
                 if let err = err {
                     print("Error writing document: \(err)")
                 } else {
                     print("Document successfully written!")
+                    print(db.collection("users").document(userUID).value(forKey: "name")!)
+
                 }
             }
             

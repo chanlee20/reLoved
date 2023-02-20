@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   uuid = "7AFC8B0E-06E7-4CCE-8556-77FD2A623DD0"
+   uuid = "3CFF9841-DDF1-4BC3-A563-19B0B183D79F"
    type = "0"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8EF05736-3798-4E50-824E-9D5962C13F80"
+            uuid = "46393957-2790-4015-B4EA-E3132D09BE6F"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "reLoved/SignupView.swift"
+            filePath = "reLoved/profileView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "content"
             landmarkType = "24">
          </BreakpointContent>
