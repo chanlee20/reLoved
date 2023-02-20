@@ -613,9 +613,6 @@ PODS:
   - Firebase/Firestore (10.5.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 10.5.0)
-  - Firebase/Storage (10.5.0):
-    - Firebase/CoreOnly
-    - FirebaseStorage (~> 10.5.0)
   - FirebaseAnalytics (10.5.0):
     - FirebaseAnalytics/AdIdSupport (= 10.5.0)
     - FirebaseCore (~> 10.0)
@@ -781,13 +778,13 @@ PODS:
     - nanopb/encode (= 2.30909.0)
   - nanopb/decode (2.30909.0)
   - nanopb/encode (2.30909.0)
-  - PromisesObjC (2.1.1)
+  - PromisesObjC (2.2.0)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Firestore
-  - Firebase/Storage
+  - FirebaseStorage
   - GoogleMaps (= 7.3.0)
 
 SPEC REPOS:
@@ -839,8 +836,8 @@ SPEC CHECKSUMS:
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   Libuv-gRPC: 55e51798e14ef436ad9bc45d12d43b77b49df378
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
-  PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
+  PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
 
-PODFILE CHECKSUM: 3883c5c8d6901698fea5f8b022d4e90ac3cc2dde
+PODFILE CHECKSUM: b3a142de64cf8364a85feffbd22f321170316403
 
 COCOAPODS: 1.11.3

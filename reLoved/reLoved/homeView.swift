@@ -8,19 +8,28 @@
 import SwiftUI
 
 struct homeView: View {
+    @State private var image = UIImage()
+    @State private var showSheet = false
+    @State var showPostView: Bool = false
+
     var body: some View {
-       content
-    }
-    var content: some View {
-        
-        HStack{
-            NavigationLink(destination: postView(), label: {Text("post")})
-            
+        VStack{
+            if showPostView{
+                postView()
+            }else{
+                Button("post"){
+                    self.showPostView = true
+                }
+            }
         }
         
         
     }
-}
+   
+        
+        
+    }
+
 
 struct homeView_Previews: PreviewProvider {
     static var previews: some View {
