@@ -34,31 +34,33 @@ struct LoginView: View{
 
     var content: some View {
         ZStack{
-            LinearGradient(gradient: Gradient(colors:[.orange, .white]), startPoint: .topLeading, endPoint: .bottomTrailing).edgesIgnoringSafeArea(.all)
+            LinearGradient(gradient: Gradient(colors:[.white, .white]), startPoint: .topLeading, endPoint: .bottomTrailing).edgesIgnoringSafeArea(.all)
             VStack{
-                Text("reLoved")
-                    .font(.system(size: 50, weight: .medium, design: .default))
-                    .foregroundColor((.red))
-                    .padding(80)
+//                Text("reLoved")
                 VStack(spacing: 20){
-                    Image(systemName: "arrow.clockwise.heart")
-                        .renderingMode(.original)
+//                    Image(systemName: "arrow.clockwise.heart")
+//                        .renderingMode(.original)
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fit)
+//                        .frame(width: 180, height: 180)
+                    
+                    Image("reLoved")
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 180, height: 180)
+                        .scaledToFit()
+                        .frame(width: 400, height: 180)
                     TextField("Email", text: $email)
-                        .foregroundColor(.white)
+                        .foregroundColor(.purple)
                         .textFieldStyle(.plain)
                     Rectangle()
                         .frame(width:350, height:1)
-                        .foregroundColor(.white)
+                        .foregroundColor(.purple)
                     SecureField("Password", text: $pwd)
-                        .foregroundColor(.white)
+                        .foregroundColor(.purple)
                         .textFieldStyle(.plain)
                         
                     Rectangle()
                         .frame(width:350, height:1)
-                        .foregroundColor(.white)
+                        .foregroundColor(.purple)
                     Button(action: {
                         login()
                     }, label: {
@@ -66,7 +68,7 @@ struct LoginView: View{
                             .bold()
                             .frame(width: 200, height: 50)
                             .background(
-                                RoundedRectangle(cornerRadius: 10, style: .continuous).fill(LinearGradient(colors: [.orange,.orange], startPoint: .top, endPoint: .bottomTrailing))
+                                RoundedRectangle(cornerRadius: 10, style: .continuous).fill(LinearGradient(colors: [.purple,.purple], startPoint: .top, endPoint: .bottomTrailing))
                             )
                             .foregroundColor(.white)
                     })
@@ -74,7 +76,7 @@ struct LoginView: View{
                     .offset(y: 40)
                     NavigationLink(destination: SignupView(), label: {Text("Don't have an account?")})
                         .offset(y: 30)
-                        .foregroundColor(.orange)
+                        .foregroundColor(.purple)
                     
                 }
             }

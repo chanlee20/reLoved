@@ -120,9 +120,7 @@ struct postView: View {
             metadata, error in
             if let error = error {
                 print("Error uploading image: \(error)")
-
             }
-            
             
         }
         db.collection("posts").document(postUID).setData([

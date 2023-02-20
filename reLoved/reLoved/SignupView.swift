@@ -32,48 +32,45 @@ struct SignupView : View{
     }
     var content: some View {
         ZStack{
-            LinearGradient(gradient: Gradient(colors:[.orange, .white]), startPoint: .topLeading, endPoint: .bottomTrailing).edgesIgnoringSafeArea(.all)
+            LinearGradient(gradient: Gradient(colors:[.white, .white]), startPoint: .topLeading, endPoint: .bottomTrailing).edgesIgnoringSafeArea(.all)
             VStack{
-                Text("reLoved")
-                    .font(.system(size: 50, weight: .medium, design: .default))
-                    .foregroundColor((.red))
-                    .padding(80)
+                
                 VStack(spacing: 10){
-                    Image(systemName: "arrow.clockwise.heart")
+                    Image("reLoved")
                         .renderingMode(.original)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 180, height: 180)
+                        .frame(width: 300, height: 180)
                         .padding(.bottom)
                     TextField("Email", text: $email)
-                        .foregroundColor(.white)
+                        .foregroundColor(.purple)
                         .textFieldStyle(.plain)
                     Rectangle()
                         .frame(width:350, height:1)
-                        .foregroundColor(.white)
+                        .foregroundColor(.purple)
                         .padding(.bottom)
                     TextField("Name", text: $name)
-                        .foregroundColor(.white)
+                        .foregroundColor(.purple)
                         .textFieldStyle(.plain)
                     Rectangle()
                         .frame(width:350, height:1)
-                        .foregroundColor(.white)
+                        .foregroundColor(.purple)
                         .padding(.bottom)
                     SecureField("Password (6 characters or longer)", text: $pwd)
-                        .foregroundColor(.white)
+                        .foregroundColor(.purple)
                         .textFieldStyle(.plain)
                     Rectangle()
                         .frame(width:350, height:1)
-                        .foregroundColor(.white)
+                        .foregroundColor(.purple)
                         .padding(.bottom)
 
                     SecureField("Re-Enter Password", text: $verified_pwd)
-                        .foregroundColor(.white)
+                        .foregroundColor(.purple)
                         .textFieldStyle(.plain)
                         
                     Rectangle()
                         .frame(width:350, height:1)
-                        .foregroundColor(.white)
+                        .foregroundColor(.purple)
                     Button(action: {
                         register()
                     }, label: {
@@ -81,7 +78,7 @@ struct SignupView : View{
                             .bold()
                             .frame(width: 200, height: 50)
                             .background(
-                                RoundedRectangle(cornerRadius: 10, style: .continuous).fill(LinearGradient(colors: [.orange,.orange], startPoint: .top, endPoint: .bottomTrailing))
+                                RoundedRectangle(cornerRadius: 10, style: .continuous).fill(LinearGradient(colors: [.purple,.purple], startPoint: .top, endPoint: .bottomTrailing))
                             )
                             .foregroundColor(.white)
                     })
@@ -133,7 +130,7 @@ struct SignupView : View{
                     print("Error writing document: \(err)")
                 } else {
                     print("Document successfully written!")
-                    print(db.collection("users").document(userUID).value(forKey: "name")!)
+//                    print(db.collection("users").document(userUID).value(forKey: "name")!)
 
                 }
             }

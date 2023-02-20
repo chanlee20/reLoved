@@ -7,22 +7,28 @@
 
 import SwiftUI
 import Firebase
+import FirebaseStorage
 import FirebaseFirestore
+import SDWebImageSwiftUI
 
 struct ProfileView: View {
+    @ObservedObject var imageLoader = FirebaseImageLoader()
     @State var loggedout = false
     var auth = Auth.auth()
     let db = Firestore.firestore()
     @State var userUID = Auth.auth().currentUser?.uid ?? ""
     @State var username = ""
-    @State var profileImage:Image = Image("")
+    @State var profileImage: UIImage? = nil
     @State var showModal = false
-    
-    
+   
 
     var body: some View {
         content
-        let _ = self.fetchUserData()
+        
+            .onAppear {
+                let _ = self.fetchUserData()
+            }
+        
     }
     var content: some View {
         
@@ -33,17 +39,30 @@ struct ProfileView: View {
                 NavigationView {
                         
                         VStack{
-                            profileImage.resizable().frame(width: 200.0, height: 200.0).cornerRadius(100).padding(.top, 20)
+                            
+                            if let profileImage = profileImage {
+                                        Image(uiImage: profileImage)
+                                            .resizable()
+                                            .frame(width: 200.0, height: 200.0).cornerRadius(100).padding(.top, 20)
+                                    } else {
+                                        // Show a placeholder or loading indicator if the image is not yet available
+                                        Text("Loading...")
+                                    }
+                                
                             Text(auth.currentUser?.email ?? "email not found")
                                 .padding([.bottom, .top], 1)
                             Text(username)
-                            Spacer()
+//                            Spacer()
                             
                         }
                         
                         .navigationTitle("Your Profile")
-                        
-                    
+                        .padding(30)
+                        .cornerRadius(40)
+                        .overlay( /// apply a rounded border
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(.gray, lineWidth: 5)
+                        )
                     }
                 Button(action: {showModal = true}, label: {
                     Text("Edit Profile")
@@ -70,9 +89,11 @@ struct ProfileView: View {
         
             EditProfileModalView(isShowing: $showModal, userUID: $userUID, username: $username)
            
-           //comment
         }
         
+        .onAppear{
+            self.fetchUserData()
+        }
     }
     
     
@@ -81,6 +102,8 @@ struct ProfileView: View {
         
         // fetch user's username from firestore
         let docRefUsers = db.collection("users").document(userUID)
+        let storageRef = Storage.storage().reference()
+        
         
         docRefUsers.getDocument { (document, error) in
             guard error == nil else {
@@ -91,17 +114,17 @@ struct ProfileView: View {
             if let document = document, document.exists {
                 let data = document.data()
                 if let data = data {
-                    print("data", data)
                     self.username = data["name"] as? String ?? ""
+                    let imageUID = data["image-uid"] ?? "default"
                     
-                    // use default image if there's no profile image set
-                    self.profileImage = data["image-uid"] as? Image ?? Image("profile_01")
+                    imageLoader.loadImage(path: "profile/\(imageUID).jpg") { imageData in
+                        if let imageData = imageData {
+                            let uiImage = UIImage(data: imageData)
+                            self.profileImage = uiImage
+                        }
+                    }
                 }
             }
-
-            
-            
-            
         }
     }
     
@@ -116,6 +139,9 @@ struct ProfileView: View {
         }
        
     }
+    
+    
+    
 }
 
 
@@ -124,3 +150,24 @@ struct ProfileView_Previews: PreviewProvider {
         ProfileView()
     }
 }
+
+
+class FirebaseImageLoader: ObservableObject {
+    func loadImage(path: String, completion: @escaping (Data?) -> Void) {
+        let storage = Storage.storage()
+        let reference = storage.reference().child(path)
+        reference.getData(maxSize: 10 * 1024 * 1024) { (data, error) in
+            if let error = error {
+                print("Error loading image: \(error.localizedDescription)")
+                completion(nil)
+            } else {
+                completion(data)
+            }
+        }
+    }
+}
+
+
+
+
+
