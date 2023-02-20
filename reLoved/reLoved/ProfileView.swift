@@ -70,7 +70,7 @@ struct ProfileView: View {
         
             EditProfileModalView(isShowing: $showModal, userUID: $userUID, username: $username)
            
-           
+           //comment
         }
         
     }
